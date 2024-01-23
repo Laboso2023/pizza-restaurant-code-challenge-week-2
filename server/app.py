@@ -50,10 +50,10 @@ def delete_restaurant(restaurant_id):
     if not restaurant:
         abort(404, description="Restaurant not found")
 
-    # Delete associated RestaurantPizza records
+    
     RestaurantPizza.query.filter_by(restaurant_id=restaurant.id).delete()
 
-    # Delete the Restaurant
+    
     db.session.delete(restaurant)
     db.session.commit()
 
@@ -103,4 +103,4 @@ def create_restaurant_pizza():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=4000)
+    app.run(debug=True, port=5000)
